@@ -19,12 +19,15 @@ export default function Home() {
 
       const data = await response.json();
       if (response.status !== 200) {
-        throw data.error || new Error(`Request failed with status ${response.status}`);
+        throw (
+          data.error ||
+          new Error(`Request failed with status ${response.status}`)
+        );
       }
 
       setResult(data.result);
       setAnimalInput("");
-    } catch(error) {
+    } catch (error) {
       // Consider implementing your own error handling logic here
       console.error(error);
       alert(error.message);
@@ -34,7 +37,7 @@ export default function Home() {
   return (
     <div>
       <Head>
-        <title>OpenAI Quickstart</title>
+        <title>Super Pet Name Generator</title>
         <link rel="icon" href="/dog.png" />
       </Head>
 
